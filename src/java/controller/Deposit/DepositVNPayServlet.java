@@ -2,23 +2,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.User;
+package controller.Deposit;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.DepositHistoryDB;
+import model.UsersDB;
 
 /**
  *
  * @author ACER
  */
-@WebServlet(name = "LogoutServlet", urlPatterns = {"/LogoutServlet"})
-public class LogoutServlet extends HttpServlet {
+@WebServlet(name = "DepositVNPayServlet", urlPatterns = {"/DepositVNPayServlet"})
+public class DepositVNPayServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +38,10 @@ public class LogoutServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LogoutServlet</title>");
+            out.println("<title>Servlet DepositVNPayServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet DepositVNPayServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -58,20 +59,44 @@ public class LogoutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        request.getSession().invalidate();
-        
-        // Xóa tất cả cookie trên trình duyệt
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null) {
-            for (Cookie cookie : cookies) {
-                cookie.setMaxAge(0); // Đặt thời gian hết hạn ngay lập tức
-                cookie.setValue(""); // Xóa giá trị cookie
-                cookie.setPath("/BookShop"); // Đảm bảo trùng Path với khi tạo
-                response.addCookie(cookie); // Cập nhật cookie mới để xóa
+        double depositValue = Double.parseDouble(request.getParameter("vnp_Amount")) / 100;
+
+        // 1. Lấy userID từ vnp_TxnRef
+        String txnRef = request.getParameter("vnp_TxnRef");
+        String userID = (txnRef != null && txnRef.contains("&&")) ? txnRef.split("&&")[0] : txnRef;
+        // 2. Lấy mã ngân hàng từ vnp_BankCode
+        String bank = request.getParameter("vnp_BankCode");
+        // 3. Lấy trạng thái giao dịch
+        String transactionStatus = request.getParameter("vnp_TransactionStatus");
+
+        // 4. Kiểm tra nếu giao dịch thành công (vnp_TransactionStatus = "00")
+        if ("00".equals(transactionStatus)) {
+            try {
+                
+                // Cập nhật lịch sử nạp tiền lớn hơn 500000 thì đợi admin duyệt, còn nhỏ thì tự động   
+                int depositID = DepositHistoryDB.addDeposit(Integer.parseInt(userID), bank, depositValue);
+                if (depositValue < 500000.0 && depositID != -1 ){
+                    DepositHistoryDB.updateStatus(depositID, "Completed");
+                    request.setAttribute("err", "Add Thành Công");
+                }   else {        
+                   request.setAttribute("err", "Số Tiền Lớn Vui Lòng Đợi Admin Xác Nhận"); 
+                }
+                // Cập nhật lại session user sau khi nạp tiền
+            } catch (Exception e) {
+                e.printStackTrace();
+                request.setAttribute("err", "Nạp Tiền Thất Bại"); 
             }
+            request.getSession().setAttribute("user", UsersDB.getUserByID(Integer.parseInt(userID)));
+            request.getSession().setAttribute("listDeposit", DepositHistoryDB.allListDeposit());
+            request.setAttribute("status", "Giao dịch thành công!");
+            request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
+
+        } else {
+            // Giao dịch thất bại, hiển thị thông báo lỗi
+            request.setAttribute("status", "Giao dịch không thành công. Vui lòng thử lại!");
+            request.getSession().setAttribute("listDeposit", DepositHistoryDB.allListDeposit());
+            request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
         }
-        request.getRequestDispatcher("HomeServlet").forward(request, response);
     }
 
     /**

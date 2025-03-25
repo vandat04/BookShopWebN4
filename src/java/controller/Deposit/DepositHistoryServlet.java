@@ -63,13 +63,16 @@ public class DepositHistoryServlet extends HttpServlet {
             throws ServletException, IOException {
         Users user = (Users) request.getSession().getAttribute("user");
         ArrayList<DepositHistory> listDeposit;
-        if (user.isAdmin()){
+        if (user.isAdmin()) {
             listDeposit = (ArrayList) DepositHistoryDB.allListDeposit();
+            request.getSession().setAttribute("listDeposit", listDeposit);
+            request.getRequestDispatcher("/deposit/depositHistoryForAdmin.jsp").forward(request, response);
         } else {
             listDeposit = (ArrayList) DepositHistoryDB.getDepositByID(user.getUserID());
+            request.getSession().setAttribute("listDeposit", listDeposit);
+            request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
         }
-        request.getSession().setAttribute("listDeposit", listDeposit);
-        request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
+
     }
 
     /**
