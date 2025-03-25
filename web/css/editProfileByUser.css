@@ -1,0 +1,112 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2025, 4:41:55 PM
+    Author     : win
+*/
+/* Định dạng chung cho container */
+.container {
+    max-width: 100%; /* Để container chiếm toàn bộ chiều rộng */
+    margin-top: 50px;
+    padding: 0; /* Loại bỏ padding mặc định */
+}
+
+/* Định dạng tiêu đề chính và nút Back */
+h2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Đẩy nút Back sang trái, User Profile sang giữa */
+    width: 80%; /* Đồng bộ với chiều rộng của form */
+    margin-left: 10%; /* Căn chỉnh với khung bên trái */
+    margin-right: 10%; /* Căn chỉnh với khung bên phải */
+    margin-bottom: 30px;
+    position: relative; /* Để căn giữa User Profile */
+}
+
+/* Định dạng nút Back */
+.btn-outline-secondary {
+    margin-right: 15px; /* Khoảng cách giữa nút Back và tiêu đề */
+}
+
+/* Định dạng chữ User Profile */
+h2 p {
+    flex-grow: 1; /* Cho phép chữ User Profile chiếm không gian còn lại */
+    text-align: center; /* Căn giữa chữ User Profile */
+    margin: 0; /* Loại bỏ margin mặc định của thẻ p */
+    font-size: 1.75rem; /* Kích thước chữ tương đương với h2 mặc định */
+    font-weight: 500; /* Độ đậm tương đương với h2 mặc định */
+}
+
+/* Định dạng form-container với Grid */
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Chia 2 cột */
+    gap: 10%; /* Khoảng cách giữa 2 cột là 10% */
+    width: 80%; /* Tổng chiều rộng của form là 80% màn hình (10% trái + 10% phải) */
+    margin-left: 10%; /* Cách biên trái 10% */
+    margin-right: 10%; /* Cách biên phải 10% */
+}
+
+/* Định dạng các trường trong form */
+.mb-3 {
+    margin-bottom: -10px !important; /* Rút ngắn khoảng cách giữa các trường xuống 10px */
+}
+
+/* Định dạng các nhãn (label) */
+.form-label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px; /* Khoảng cách giữa label và input */
+}
+
+/* Định dạng input */
+.form-control {
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    width: 100%; /* Đảm bảo input chiếm toàn bộ chiều rộng cột */
+    border: 1px solid #ccc; /* Viền giống hình ảnh */
+}
+
+/* Định dạng nút Update */
+.btn-primary {
+    background-color: #4a86e8;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Đảm bảo nút Update nằm ở dưới cùng và căn giữa */
+.d-grid {
+    grid-column: span 2; /* Nút Update chiếm toàn bộ 2 cột */
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive: Khi màn hình nhỏ hơn 768px, chuyển về 1 cột */
+@media (max-width: 768px) {
+    .form-container {
+        grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+        width: 80%; /* Giữ chiều rộng 80% */
+        margin-left: 10%;
+        margin-right: 10%;
+        gap: 15px; /* Giảm khoảng cách khi ở 1 cột */
+    }
+
+    .d-grid {
+        grid-column: span 1; /* Đảm bảo nút Update không bị ảnh hưởng */
+    }
+
+    h2 {
+        width: 80%; /* Giữ căn chỉnh với form */
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}

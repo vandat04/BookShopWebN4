@@ -1,0 +1,70 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2025, 9:42:48 AM
+    Author     : win
+*/
+
+/* Book-themed styling for Add Product Page */
+body {
+    background-image: url('https://images.unsplash.com/photo-1481627834876-b7e0e7d8b0c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1228&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: rgba(255, 255, 255, 0.9);
+    background-blend-mode: lighten;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+/* Bold titles for each section */
+label.form-label {
+    font-weight: 700;
+    color: #333;
+}
+
+
+/* Change Add New Book button background */
+.btn-primary {
+    background-color: #4a86e8 !important;
+    border-color: #4a86e8 !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #3a76c8 !important;
+}
+
+/* Add some book-themed decorative touches */
+.form-control {
+    border-color: #4a86e8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4a86e8;
+    box-shadow: 0 0 0 0.25rem rgba(74, 134, 232, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        background-image: none;
+        background-color: #f4f6f7;
+    }
+    .container {
+        background-color: white;
+        box-shadow: none;
+    }
+}

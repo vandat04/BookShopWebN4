@@ -1,0 +1,148 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 24, 2025, 4:54:49 PM
+    Author     : win
+*/
+/* CSS Styles for Deposit History Page */
+
+/* Title styling */
+h2.mb-4 {
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Back button styling */
+h2.mb-4 a.btn {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Deposit title centering */
+.card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    
+    font-size: 1.5rem;
+}
+
+/* Bold labels */
+label[for="bank"], 
+label[for="value"] {
+    font-weight: bold;
+    color: #333;
+}
+
+/* QR Code button styling */
+button[type="submit"].btn-primary {
+    background-color: #4a86e8 !important;
+    border-color: #4a86e8 !important;
+    padding: 8px 20px;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+/* Section containers styling for all content sections */
+.card.p-4.shadow,
+.section-container {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Status message styling */
+.alert {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Error message styling */
+.error-message {
+    color: #dc3545;
+    font-weight: 500;
+    background-color: rgb(251,255,198);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Success message styling */
+.success-message {
+    color: #28a745;
+    font-weight: 500;
+    background-color: rgba(40, 167, 69, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+/* Section headers */
+h4 {
+    
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* Table styling */
+.table {
+    background-color: white;
+    margin-bottom: 0;
+}
+
+/* Status styling for different transaction states */
+.status-completed {
+    color: #28a745;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.status-completed::before {
+    content: "✓";
+    margin-right: 5px;
+    font-weight: bold;
+}
+
+.status-waiting {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-failed {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Make the QR code section stand out a bit */
+.card.p-4.shadow {
+   
+}
+
+/* Override bootstrap button hover effect */
+.btn-primary:hover {
+    background-color: #095057 !important;
+    border-color: #095057 !important;
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+    h2.mb-4 a.btn {
+        position: relative;
+        display: block;
+        margin-bottom: 10px;
+        left: 0;
+    }
+    
+    h2.mb-4 {
+        text-align: center;
+        margin-top: 15px;
+    }
+}

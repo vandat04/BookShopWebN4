@@ -1,0 +1,27 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2025, 5:56:37 PM
+    Author     : win
+*/
+
+.sort-button {
+    float: right;
+    margin-bottom: 10px;    /* Reduced from 15px */
+    padding: 5px 10px;      /* Reduced from 8px 15px */
+    background-color: #4a86e8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-decoration: none;  /* Added to remove underline */
+    display: inline-block;  /* Added to ensure proper button-like behavior */
+}
+
+.sort-button:hover {
+    background-color: #4a86e8;
+    color: white;
+    text-decoration: none;  /* Ensures no underline on hover */
+}

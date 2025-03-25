@@ -1,0 +1,39 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2025, 8:46:30 AM
+    Author     : win
+*/
+
+/* Căn giữa tiêu đề h2 */
+h2 {
+    text-align: center; /* Căn giữa văn bản */
+}
+
+/* Các CSS hiện có */
+body {
+    font-size: 16px;
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+}
+
+.btn-sm {
+    font-size: 12px;
+}

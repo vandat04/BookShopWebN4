@@ -1,0 +1,28 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Mar 25, 2025, 10:52:33 AM
+    Author     : win
+*/
+
+
+.form-label {
+    font-weight: bold;
+}
+
+.btn-primary.shadow-sm {
+    background-color: #4a86e8 !important;
+    border-color: #4a86e8 !important;
+}
+
+.btn-primary.shadow-sm:hover {
+    background-color: #3a76d8 !important;
+    border-color: #3a76d8 !important;
+}
+
+.btn-primary:hover {
+    background-color: #3a76d8;
+    border-color: #3a76d8;
+}
