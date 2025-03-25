@@ -339,7 +339,7 @@ footer {
 .typing .dot:nth-child(3) {
     animation-delay: 0.4s;
 }
-
+/*
 @keyframes blink {
     0% {
         opacity: 0.2;
@@ -350,7 +350,7 @@ footer {
     100% {
         opacity: 0.2;
     }
-}
+}*/
 
 #chatForm {
     display: flex;
