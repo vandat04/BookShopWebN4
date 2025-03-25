@@ -1,0 +1,140 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* loginCSS.css */
+html {
+    height: 100%; /* Ensure html takes full height */
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center top fixed;
+    background-size: cover; /* Covers the entire area */
+    min-height: 100vh; /* Minimum height of viewport */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    position: relative; /* Allows absolute positioning of ::before */
+    display: flex; /* Keep the flex layout for centering */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+body::before {
+    content: '';
+    position: fixed; /* Use fixed to ensure it covers the viewport and stays in place while scrolling */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Use viewport height to cover the full visible area */
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    z-index: -1; /* Keeps it behind content */
+}
+
+.form-container {
+    background: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 450px; /* Adjusted for better form fit */
+    margin: 20px auto; /* Centered with auto margins */
+    position: relative; /* Ensures it stays above the overlay */
+    z-index: 1; /* Above the overlay */
+}
+
+h3 {
+    color: #2c3e50; /* Dark blue for a bookish feel */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #34495e; /* Slightly lighter dark blue */
+}
+
+.form-control {
+    border: 2px solid #dcdcdc; /* Light gray border */
+    border-radius: 8px;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #3498db; /* Bright blue for focus */
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+.form-check-label {
+    color: #34495e; /* Match the form label color */
+}
+
+.btn-primary {
+    background-color: #3498db; /* Blue for login button */
+    border: none;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.btn-outline-secondary {
+    border-color: #7f8c8d; /* Grayish border */
+    color: #7f8c8d;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #ecf0f1; /* Light gray background on hover */
+    color: #2c3e50;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.d-grid .btn {
+    width: 100%;
+}
+
+.text-center p {
+    color: #34495e;
+    margin: 0;
+}
+
+.btn-link {
+    color: #3498db; /* Blue to match the theme */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-link:hover {
+    color: #2980b9; /* Darker blue on hover */
+    text-decoration: underline;
+}
