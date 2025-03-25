@@ -1,0 +1,87 @@
+/*
+    Created on : Mar 25, 2025, 5:09:53 PM
+    Author     : win
+*/
+
+/* Điều chỉnh container để cách biên 10% */
+.container.custom-container {
+    width: 80%; /* Giảm chiều rộng xuống 80%, tức là cách mỗi bên 10% */
+    max-width: 100%; /* Đảm bảo không vượt quá giới hạn mặc định của Bootstrap */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header title styling */
+.header-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000; /* Black color */
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Icon circle styling */
+.icon-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Card styling */
+.card {
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.text-muted {
+    font-size: 0.75rem;
+}
+
+/* Adjust card body padding for smaller cards */
+.card-body {
+    padding: 1rem;
+}
+
+/* Logout button styling */
+.logout-btn {
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #f1b0b7; /* Slightly darker red on hover */
+}
+
+.logout-title {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.logout-username {
+    font-size: 0.9rem;
+}
