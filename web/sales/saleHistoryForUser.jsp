@@ -6,23 +6,28 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/includes/headerForUser.jsp" %>
 
 <!DOCTYPE html>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/saleHistoryForUser.css">       
+
 
 <div class="container mt-5">
     <h2 class="mb-4">
-        <a href="${pageContext.request.contextPath}/includes/homeForUser.jsp" class="btn btn-outline-secondary">Back</a> Your Sales
+        <a href="${pageContext.request.contextPath}/includes/homeForUser.jsp" class="btn btn-outline-secondary">Back</a> 
+        <p class="text-center">Your Sales</p>
+        
+        
     </h2>
 
     <!-- Hiển thị thông báo lỗi nếu không đủ tiền -->
     <c:if test="${not empty requestScope.err and requestScope.err eq 'Not Enough Money'}">
-        <p class="text-danger">Nạp thêm tiền, số dư không đủ!</p>
+        <p class="text-danger">Top up, insufficient balance!</p>
     </c:if>
         
-    <a href="${pageContext.request.contextPath}/SortSalesServlet"> Sort By Status</a>
+    <a href="${pageContext.request.contextPath}/SortSalesServlet" class="sort-button">Sort By Status</a>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>

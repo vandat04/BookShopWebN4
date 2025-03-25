@@ -6,14 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/includes/headerForAdmin.jsp" %>
 <!DOCTYPE html>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/saleHistoryForAdmin.css">       
 
 <div class="container mt-5">
-    <h2 class="mb-4">
-        <a href="${pageContext.request.contextPath}/includes/homeForAdmin.jsp" class="btn btn-outline-secondary">Back</a> Sales Management
+    <h2 class="mb-4 text-center">
+        Sales Management
     </h2>
 
     <!-- Phần 1: Danh sách các đơn hàng có Status là Pending Refund -->
@@ -76,7 +78,7 @@
 
     <!-- Phần 2: Danh sách các đơn hàng có Status khác Pending Refund -->
     <h4 class="mt-5">Other Sales</h4>
-    <a href="${pageContext.request.contextPath}/SortSalesServlet"> Sort By Status</a>
+    <a href="${pageContext.request.contextPath}/SortSalesServlet" class="sort-button">Sort By Status</a>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>

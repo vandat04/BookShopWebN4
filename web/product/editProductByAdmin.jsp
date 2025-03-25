@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
+<link href="${pageContext.request.contextPath}/css/editProductByAdmin.css" rel="stylesheet">
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -25,7 +27,7 @@
 
                 <!-- Hiển thị thông báo trạng thái cập nhật -->
                 <c:if test="${not empty requestScope.upd}">
-                    <div class="alert ${requestScope.upd == 'Cap Nhat Thanh cong' ? 'alert-success' : 'alert-danger'} alert-dismissible fade show" role="alert">
+                    <div class="alert ${requestScope.upd == 'Update successfully' ? 'alert-success' : 'alert-danger'} alert-dismissible fade show" role="alert">
                         <strong>${requestScope.upd}</strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>

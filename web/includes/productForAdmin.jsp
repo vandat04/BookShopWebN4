@@ -8,10 +8,17 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/productForAdmin.css">
+
 <div class="container mt-4">
-    <h2 class="text-center mb-4">
-        Book List
-    </h2>
+    <div class="row align-items-center mb-4">
+        
+        <div class="col-md-12 text-center">
+            <h2 class="mb-0">Book List</h2>
+        </div>
+    </div>
 
     <div class="table-container">
         <table class="table table-bordered table-hover">
@@ -82,7 +89,7 @@
     }
 </script>
 
-<style>
+<!--<style>
     body {
         font-size: 16px;
     }
@@ -103,4 +110,4 @@
     .btn-sm {
         font-size: 12px;
     }
-</style>
+</style>-->

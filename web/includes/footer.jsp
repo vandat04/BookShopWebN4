@@ -4,6 +4,7 @@
     Author     : ACER
 --%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,190 +12,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <!-- Font Awesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <style>
-            footer {
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef); /* Gradient background */
-                padding: 30px 0 20px; /* Increased padding */
-                box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
-                position: relative; /* For scroll-to-top button positioning */
-            }
-
-            .footer-content {
-                display: flex;
-                justify-content: center;
-                align-items: stretch; /* Đảm bảo các cột có chiều cao bằng nhau */
-                flex-wrap: wrap;
-            }
-
-            .footer-col {
-                flex: 1;
-                max-width: 450px; /* Chiều rộng tối đa */
-                margin: 0 15px;
-                display: flex;
-                align-items: stretch;
-            }
-
-            .footer-logo {
-                max-width: 150px;
-                margin-bottom: 15px;
-                border-radius: 8px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-
-            .contact-info {
-                background-color: #ffffff;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
-                transition: transform 0.3s ease;
-                height: 100%; /* Chiều cao 100% */
-                width: 100%; /* Chiều rộng 100% */
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .contact-info:hover {
-                transform: translateY(-5px);
-            }
-
-            .contact-info h5 {
-                color: #007bff;
-                font-weight: bold;
-                margin-bottom: 15px;
-                font-size: 1.2rem;
-                border-bottom: 2px solid #e9ecef;
-                padding-bottom: 8px;
-                text-align: center;
-            }
-
-            .contact-info-text {
-                /* Căn giữa khối văn bản */
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-info p {
-                margin: 8px 0;
-                color: #333;
-                /* Tạo phần đệm bên trong trái để căn chỉnh các icon */
-                display: flex;
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .contact-info p i {
-                color: #007bff;
-                margin-right: 10px;
-                width: 20px; /* Chiều rộng cố định cho icon */
-                text-align: center;
-            }
-
-            .contact-info p span {
-                flex: 1; /* Phần nội dung văn bản */
-            }
-
-            .map-wrapper {
-                width: 100%;
-                height: 100%; /* Chiều cao 100% */
-                border-radius: 10px;
-                overflow: hidden;
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-                display: flex; /* Sử dụng flexbox */
-                align-items: stretch; /* Đảm bảo con có chiều cao bằng cha */
-            }
-
-            .map-wrapper:hover {
-                transform: scale(1.01);
-            }
-
-            .map-wrapper iframe {
-                width: 100%;
-                min-height: 275px; /* Chiều cao tối thiểu */
-                height: 100%;
-                border: none;
-                display: block;
-                flex: 1; /* Mở rộng để lấp đầy không gian có sẵn */
-            }
-
-            .social-icons {
-                margin-top: 15px;
-                text-align: center;
-            }
-
-            .social-icons a {
-                display: inline-block;
-                width: 36px;
-                height: 36px;
-                background-color: #007bff;
-                color: white;
-                border-radius: 50%;
-                text-align: center;
-                line-height: 36px;
-                margin: 0 5px;
-                transition: all 0.3s ease;
-            }
-
-            .social-icons a:hover {
-                background-color: #0056b3;
-                transform: translateY(-3px);
-            }
-
-            .copyright {
-                margin-top: 20px;
-                padding-top: 15px;
-                border-top: 1px solid #dee2e6;
-                text-align: center;
-                color: #6c757d;
-                font-size: 0.9rem;
-            }
-
-            /* Nút lướt lên đầu trang */
-            .scroll-to-top {
-                position: fixed;
-                bottom: 20px;
-                right: 20px;
-                width: 50px;
-                height: 50px;
-                background-color: #007bff;
-                color: white;
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-                z-index: 1000;
-            }
-
-            .scroll-to-top.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .scroll-to-top:hover {
-                background-color: #0056b3;
-                transform: translateY(-3px);
-            }
-
-            /* Media query để đảm bảo responsive */
-            @media (max-width: 991px) {
-                .footer-col {
-                    margin: 10px 0;
-                    width: 100%;
-                    max-width: 100%;
-                }
-
-                .map-wrapper iframe {
-                    height: 250px;
-                }
-            }
-        </style>
+        <link rel="stylesheet" href="<%=request.getContextPath()%>/css/footer.css"/>
+        
     </head>
     <body>
         <!-- Footer Section -->
@@ -210,37 +29,39 @@
                                 </div>
                             </div>
 
-                            <!-- Contact information column -->
+                            <!-- Contact information column -->                           
                             <div class="footer-col">
                                 <div class="contact-info">
-                                    <!-- Logo image -->
+                                    <!-- Logo and heading in same line -->
                                     <div class="text-center">
                                         <img src="images\fpt.jpg" alt="FPT Logo" class="footer-logo">
+                                        <h5>Contact</h5>
                                     </div>
 
-                                    <h5>Contact</h5>
+                                    <!-- Container for all contact information -->
+                                    <div class="contact-info-container">
+                                        <div class="contact-info-text">
+                                            <p>
+                                                <i class="fas fa-phone-alt"></i>
+                                                <span>HotLine: 012345678</span>
+                                            </p>
+                                            <p>
+                                                <i class="fas fa-envelope"></i>
+                                                <span>Email: support@example.com</span>
+                                            </p>
+                                            <p>
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                <span>Địa chỉ: FPT University Da Nang</span>
+                                            </p>
+                                        </div>
 
-                                    <div class="contact-info-text">
-                                        <p>
-                                            <i class="fas fa-phone-alt"></i>
-                                            <span>HotLine: 012345678</span>
-                                        </p>
-                                        <p>
-                                            <i class="fas fa-envelope"></i>
-                                            <span>Email: support@example.com</span>
-                                        </p>
-                                        <p>
-                                            <i class="fas fa-map-marker-alt"></i>
-                                            <span>Địa chỉ: FPT University Da Nang</span>
-                                        </p>
-                                    </div>
-
-                                    <!-- Social media icons -->
-                                    <div class="social-icons">
-                                        <a href="https://www.facebook.com/@daihocfptdanang" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
-                                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        <!-- Social media icons -->
+                                        <div class="social-icons">
+                                            <a href="https://www.facebook.com/@daihocfptdanang" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                            <a href="#"><i class="fab fa-twitter"></i></a>
+                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -259,6 +80,123 @@
             </div>
         </footer>
 
+        <div id="chatIcon" onclick="toggleChat()">
+            <img src="https://cdn-icons-png.flaticon.com/512/138/138275.png" alt="Chat Icon">
+        </div>
+
+        <div id="chatWindow">
+            <div id="chatHeader">
+                <span>Chatbot Thuê Sách</span>
+                <span id="closeChat" onclick="toggleChat()">×</span>
+            </div>
+            <div id="chatBox">
+                <% 
+                    @SuppressWarnings("unchecked")
+                    List<String[]> conversation = (List<String[]>) request.getAttribute("conversation");
+                    if (conversation != null) {
+                        for (String[] entry : conversation) {
+                            String userMessage = entry[0];
+                            String botText = entry[1];
+                            String imageUrls = entry[2];
+                %>
+                <div class="message user">
+                    <span><%= userMessage %></span>
+                </div>
+                <div class="message bot">
+                    <span><%= botText %></span>
+                    <% if (imageUrls != null) { 
+                        String[] images = imageUrls.split(",");
+                        for (String imageUrl : images) { %>
+                    <img src="images/<%= imageUrl %>" alt="Ảnh sách" onerror="this.style.display='none';">
+                    <% } %>
+                    <% } %>
+                </div>
+                <% 
+                        }
+                    }
+                %>
+            </div>
+            <form id="chatForm" onsubmit="sendMessage(event)">
+                <input type="text" id="messageInput" name="message" placeholder="Nhập câu hỏi..." required />
+                <button type="submit">Gửi</button>
+            </form>
+        </div>
+
+
+        <script>
+            // Hàm bật/tắt cửa sổ chat
+            function toggleChat() {
+                var chatWindow = document.getElementById("chatWindow");
+                if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+                    chatWindow.style.display = "flex";
+                } else {
+                    chatWindow.style.display = "none";
+                }
+                scrollToBottom();
+            }
+
+            // Hàm cuộn xuống dưới cùng
+            function scrollToBottom() {
+                var chatBox = document.getElementById("chatBox");
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+
+            // Gửi tin nhắn bằng AJAX
+            function sendMessage(event) {
+                event.preventDefault();
+
+                var messageInput = document.getElementById("messageInput");
+                var userMessage = messageInput.value.trim();
+                if (!userMessage)
+                    return;
+
+                // Hiển thị tin nhắn người dùng
+                var chatBox = document.getElementById("chatBox");
+                chatBox.innerHTML += '<div class="message user"><span>' + userMessage + '</span></div>';
+                messageInput.value = "";
+
+                // Thêm hiệu ứng Typing
+                chatBox.innerHTML += '<div class="typing" id="typingIndicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+                scrollToBottom();
+
+                // Gửi AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "ChatbotServlet", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Xóa hiệu ứng Typing
+                        var typingIndicator = document.getElementById("typingIndicator");
+                        if (typingIndicator)
+                            typingIndicator.remove();
+
+                        // Hiển thị phản hồi bot
+                        var response = JSON.parse(xhr.responseText);
+                        var botText = response.botText;
+                        var imageUrls = response.imageUrls || "";
+
+                        var botMessage = '<div class="message bot"><span>' + botText + '</span>';
+                        if (imageUrls) {
+                            imageUrls.split(",").forEach(function (url) {
+                                botMessage += '<img src="images/' + url + '" alt="Ảnh sách" onerror="this.style.display=\'none\';">';
+                            });
+                        }
+                        botMessage += '</div>';
+                        chatBox.innerHTML += botMessage;
+                        scrollToBottom();
+                    }
+                };
+                xhr.send("message=" + encodeURIComponent(userMessage));
+            }
+
+            // Cuộn xuống dưới cùng khi tải trang
+            window.onload = function () {
+                scrollToBottom();
+            };
+            
+            
+            
+        </script>
         <!-- Nút lướt lên đầu trang -->
         <div class="scroll-to-top" id="scrollToTop">
             <i class="fas fa-arrow-up"></i>
@@ -287,6 +225,157 @@
                     behavior: "smooth"
                 });
             });
+        </script>
+        
+        
+<!--thêm mới-->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const chatIcon = document.getElementById('chatIcon');
+                const chatWindow = document.getElementById('chatWindow');
+                const chatHeader = document.getElementById('chatHeader');
+                const closeChat = document.getElementById('closeChat');
+
+                // Làm cho chatIcon có thể di chuyển
+                makeDraggable(chatIcon);
+
+                // Làm cho chatWindow có thể di chuyển qua chatHeader
+                makeDraggable(chatWindow, chatHeader);
+
+                // Xử lý sự kiện click cho chat icon để hiện/ẩn khung chat
+                chatIcon.onclick = function() {
+                    toggleChat();
+                };
+
+                // Xử lý sự kiện đóng chat
+                closeChat.onclick = function() {
+                    chatWindow.style.display = 'none';
+                };
+
+                // Cuộn xuống dưới cùng khi tải trang
+                scrollToBottom();
+            });
+
+            // Hàm bật/tắt cửa sổ chat
+            function toggleChat() {
+                var chatWindow = document.getElementById("chatWindow");
+                if (chatWindow.style.display === "none" || chatWindow.style.display === "") {
+                    chatWindow.style.display = "flex";
+                    // Đặt vị trí khung chat cố định gần icon
+                    updateChatWindowPosition();
+                } else {
+                    chatWindow.style.display = "none";
+                }
+                scrollToBottom();
+            }
+
+            // Đặt vị trí khung chat gần icon
+            function updateChatWindowPosition() {
+                const chatIcon = document.getElementById('chatIcon');
+                const chatWindow = document.getElementById('chatWindow');
+                const iconRect = chatIcon.getBoundingClientRect();
+                // Hiển thị khung chat phía trên và bên phải icon
+                chatWindow.style.left = (iconRect.left + 70) + 'px'; // Dịch sang phải 70px
+                chatWindow.style.top = (iconRect.top - chatWindow.offsetHeight - 10) + 'px'; // Phía trên icon
+                // Giữ khung chat trong viewport
+                keepInViewport(chatWindow);
+            }
+
+            // Hàm làm cho phần tử có thể di chuyển
+            function makeDraggable(element, dragHandle = null) {
+                const handle = dragHandle || element;
+                let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+
+                handle.onmousedown = dragMouseDown;
+
+                function dragMouseDown(e) {
+                    e.preventDefault();
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    document.onmouseup = closeDragElement;
+                    document.onmousemove = elementDrag;
+                }
+
+                function elementDrag(e) {
+                    e.preventDefault();
+                    pos1 = pos3 - e.clientX;
+                    pos2 = pos4 - e.clientY;
+                    pos3 = e.clientX;
+                    pos4 = e.clientY;
+                    element.style.top = (element.offsetTop - pos2) + "px";
+                    element.style.left = (element.offsetLeft - pos1) + "px";
+                    keepInViewport(element);
+                    // Nếu là icon, cập nhật vị trí khung chat khi khung chat đang mở
+                    if (element.id === 'chatIcon' && chatWindow.style.display === "flex") {
+                        updateChatWindowPosition();
+                    }
+                }
+
+                function closeDragElement() {
+                    document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+
+                // Giữ phần tử trong viewport
+                function keepInViewport(el) {
+                    const rect = el.getBoundingClientRect();
+                    const viewportWidth = window.innerWidth;
+                    const viewportHeight = window.innerHeight;
+
+                    if (rect.left < 0) el.style.left = "0px";
+                    if (rect.right > viewportWidth) el.style.left = (viewportWidth - rect.width) + "px";
+                    if (rect.top < 0) el.style.top = "0px";
+                    if (rect.bottom > viewportHeight) el.style.top = (viewportHeight - rect.height) + "px";
+                }
+            }
+
+            // Hàm cuộn xuống dưới cùng
+            function scrollToBottom() {
+                var chatBox = document.getElementById("chatBox");
+                if (chatBox) {
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }
+            }
+
+            // Gửi tin nhắn bằng AJAX
+            function sendMessage(event) {
+                event.preventDefault();
+                var messageInput = document.getElementById("messageInput");
+                var userMessage = messageInput.value.trim();
+                if (!userMessage) return;
+
+                var chatBox = document.getElementById("chatBox");
+                chatBox.innerHTML += '<div class="message user"><span>' + userMessage + '</span></div>';
+                messageInput.value = "";
+
+                chatBox.innerHTML += '<div class="typing" id="typingIndicator"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>';
+                scrollToBottom();
+
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "ChatbotServlet", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var typingIndicator = document.getElementById("typingIndicator");
+                        if (typingIndicator) typingIndicator.remove();
+
+                        var response = JSON.parse(xhr.responseText);
+                        var botText = response.botText;
+                        var imageUrls = response.imageUrls || "";
+
+                        var botMessage = '<div class="message bot"><span>' + botText + '</span>';
+                        if (imageUrls) {
+                            imageUrls.split(",").forEach(function (url) {
+                                botMessage += '<img src="images/' + url + '" alt="Ảnh sách" onerror="this.style.display=\'none\';">';
+                            });
+                        }
+                        botMessage += '</div>';
+                        chatBox.innerHTML += botMessage;
+                        scrollToBottom();
+                    }
+                };
+                xhr.send("message=" + encodeURIComponent(userMessage));
+            }
         </script>
     </body>
 </html>

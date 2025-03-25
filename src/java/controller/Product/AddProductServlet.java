@@ -89,10 +89,10 @@ public class AddProductServlet extends HttpServlet {
     
         if (BooksDB.addBook(new Books( title, author, genre, publishedYear, publisher, description, totalCopies, availableCopies, price, imagePath, pageCount, language))){
             request.getSession().setAttribute("listBook", BooksDB.getAllList());
-            request.setAttribute("addSuccess", "Thêm sách thành công. Bạn có muốn thêm sách mới");
+            request.setAttribute("addSuccess", "Book added successfully. Do you want to add new book?");
             request.getRequestDispatcher("/product/addProductByAdmin.jsp").forward(request, response);
         } else {
-            request.setAttribute("addSuccess", "Cập nhật éo được");
+            request.setAttribute("addSuccess", "Update Failed");
             request.getRequestDispatcher("/product/addProductByAdmin.jsp").forward(request, response);
         }
     }

@@ -77,9 +77,9 @@ public class DepositVNPayServlet extends HttpServlet {
                 int depositID = DepositHistoryDB.addDeposit(Integer.parseInt(userID), bank, depositValue);
                 if (depositValue < 500000.0 && depositID != -1 ){
                     DepositHistoryDB.updateStatus(depositID, "Completed");
-                    request.setAttribute("err", "Add Thành Công");
+                    request.setAttribute("err", "Add success");
                 }   else {        
-                   request.setAttribute("err", "Số Tiền Lớn Vui Lòng Đợi Admin Xác Nhận"); 
+                   request.setAttribute("err", "Large Amount Please Wait For Admin Confirmation"); 
                 }
                 // Cập nhật lại session user sau khi nạp tiền
             } catch (Exception e) {
@@ -88,12 +88,12 @@ public class DepositVNPayServlet extends HttpServlet {
             }
             request.getSession().setAttribute("user", UsersDB.getUserByID(Integer.parseInt(userID)));
             request.getSession().setAttribute("listDeposit", DepositHistoryDB.allListDeposit());
-            request.setAttribute("status", "Giao dịch thành công!");
+            request.setAttribute("status", "Transaction successful!");
             request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
 
         } else {
             // Giao dịch thất bại, hiển thị thông báo lỗi
-            request.setAttribute("status", "Giao dịch không thành công. Vui lòng thử lại!");
+            request.setAttribute("status", "Transaction failed. Please try again.!");
             request.getSession().setAttribute("listDeposit", DepositHistoryDB.allListDeposit());
             request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
         }

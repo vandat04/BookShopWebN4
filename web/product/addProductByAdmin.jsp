@@ -6,13 +6,14 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="/includes/headerForAdmin.jsp" %>
+
 <!DOCTYPE html>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/addProductByAdmin.css">
+
 <div class="container mt-5">
     <div class="bg-white p-4 border rounded shadow-lg">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <a href="${pageContext.request.contextPath}/includes/homeForAdmin.jsp" class="btn btn-outline-secondary">
-                <i class="fa-solid fa-arrow-left"></i> Back
-            </a>
             <h2 class="text-center flex-grow-1">Add New Book</h2>
         </div>
 

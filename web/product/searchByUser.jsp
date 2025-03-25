@@ -1,5 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ include file="/includes/headerForUser.jsp" %>
+<link href="${pageContext.request.contextPath}/css/searchByUser.css" rel="stylesheet">
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +12,13 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <div class="container mt-4">
         <h2 class="mb-4">
             <a href="${pageContext.request.contextPath}/includes/homeForUser.jsp" class="btn btn-outline-secondary">
                 <i class="fas fa-arrow-left"></i> Back
-            </a>
-            Search Book
+            </a>             
+                <p class="text-center">Search Book</p>
         </h2>
 
         <!-- Search Form -->

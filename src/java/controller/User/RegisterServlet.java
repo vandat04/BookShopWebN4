@@ -92,11 +92,11 @@ public class RegisterServlet extends HttpServlet {
         boolean isRegistered = UsersDB.registerUser(username, password, fullName, email, phone, address, (java.sql.Date) dateOfBirth);
         if (isRegistered) { 
             // Chuyển hướng nếu thành công
-            request.setAttribute("err", "Dang ki thanh cong");
+            request.setAttribute("err", "Register Successfully");
             request.getRequestDispatcher("/users/login.jsp").forward(request, response);
         } else {
             // Quay lại trang đăng ký nếu lỗi
-            request.setAttribute("err", "Dang ki that bai");
+            request.setAttribute("err", "Register Failed");
             request.getRequestDispatcher("/users/register.jsp").forward(request, response);
         }
     }

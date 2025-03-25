@@ -8,4 +8,3 @@
 <%@ include file="headerForAdmin.jsp" %>
 <%@ include file="productForAdmin.jsp" %>
 
-

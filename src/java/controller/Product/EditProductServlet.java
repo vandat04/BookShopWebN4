@@ -99,11 +99,11 @@ public class EditProductServlet extends HttpServlet {
             }
         }  
         if (BooksDB.updateBook(new Books(bookID, title, author, genre, publishedYear, publisher, description, totalCopies, availableCopies, price, imagePath, pageCount, language, dateOfBook))){
-            request.setAttribute("upd", "Cap Nhat Thanh cong");
+            request.setAttribute("upd", "Update successfully");
             request.getSession().setAttribute("listBook", BooksDB.getAllList());
             request.setAttribute("bookForEdit", BooksDB.getBookByID(bookID));
         } else {
-            request.setAttribute("upd", "Cap Nhat That Bai");
+            request.setAttribute("upd", "Update failed");
             request.getSession().setAttribute("listBook", BooksDB.getAllList());
             request.setAttribute("bookForEdit", BooksDB.getBookByID(bookID));    
         }

@@ -85,7 +85,7 @@ public class ConfirmDepositServlet extends HttpServlet {
             // Xử lý lỗi nếu cần
             request.setAttribute("error", "Failed to confirm deposit.");
         }
-        request.getRequestDispatcher("/deposit/depositHistory.jsp").forward(request, response);
+        request.getRequestDispatcher("/deposit/depositHistoryForAdmin.jsp").forward(request, response);
         
     }
 

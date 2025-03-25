@@ -6,7 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ include file="/includes/headerForAdmin.jsp" %>
 <!DOCTYPE html>
 
 <!-- Bootstrap 5 & Font Awesome -->
@@ -14,10 +14,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 <div class="container mt-5">
-    <h2 class="mb-4">
-        <a href="${pageContext.request.contextPath}/includes/homeForAdmin.jsp" class="btn btn-outline-secondary">
-            <i class="fa-solid fa-arrow-left"></i> Back
-        </a>
+    <h2 class="mb-4 text-center">
         All Revenue
     </h2>
 

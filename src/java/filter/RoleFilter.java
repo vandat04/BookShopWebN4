@@ -40,13 +40,13 @@ public class RoleFilter implements Filter {
                 return;
             }
 
-            //  Nếu là admin mà truy cập trang user -> Chặn lại
+            // 🛑 Nếu là admin mà truy cập trang user -> Chặn lại
             if (role.isAdmin() && path.toLowerCase().contains("user")) {
                 request.getRequestDispatcher("/includes/homeForAdmin.jsp").forward(request, response);
                 return;
             }
         } 
-        //  Nếu hợp lệ, tiếp tục request bình thường
+        // ✅ Nếu hợp lệ, tiếp tục request bình thường
         chain.doFilter(request, response);
     }
 }
